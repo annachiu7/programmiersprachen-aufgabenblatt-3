@@ -8,12 +8,8 @@ add_executable(beispiel
 add_executable(aufgabe2bis4
   aufgabe2bis4.cpp)
 
-
 add_executable(aufgabe5
-  aufgabe5.cpp)
-
-add_executable(aufgabe7
-  aufgabe7.cpp
+  aufgabe5.cpp
   circle.cpp
   vec2.cpp
   mat2.cpp)
