@@ -18,5 +18,3 @@ add_executable(aufgabe7
   vec2.cpp
   mat2.cpp)
 
-add_executable(aufgabe8
-  aufgabe8.cpp)

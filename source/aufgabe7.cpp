@@ -12,6 +12,23 @@
 #include "color.hpp"
 
 
+template<typename T>
+void swap(T & a, T & b) // & no copie, otherwise values dont change
+{
+	T c = a;
+	a = b;
+	b = c;
+}
+
+/*
+void swap(int *a, int *b)
+{
+	int c=*a;
+	*a=*b;
+	*b=t;
+}
+*/
+
 TEST_CASE("describe_sorted_circle", "[aufgabe3.7]")
 {
 	std::set<Circle> s;
@@ -21,6 +38,13 @@ TEST_CASE("describe_sorted_circle", "[aufgabe3.7]")
 	}
 	
 	REQUIRE(std::is_sorted(s.begin(),s.end()));
+}
+
+TEST_CASE("describe_swap", "[aufgabe3.8]")
+{
+	int a = 3;	int b = 5;
+	swap(a,b);
+	REQUIRE(b == 3);
 }
 
 
