@@ -15,7 +15,10 @@ add_executable(aufgabe5
   mat2.cpp)
 
 add_executable(swap
-  swap
+  swap.cpp
   circle.cpp
   vec2.cpp
   mat2.cpp)
+
+
+

@@ -7,6 +7,7 @@
 class Circle
 {
 public:
+	Circle();
 	Circle(float r);
 	// Circle(Circle const& c);
 	// Circle(Circle&& c);

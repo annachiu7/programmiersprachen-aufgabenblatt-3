@@ -6,6 +6,11 @@
 #include "vec2.hpp"
 #include <utility>
 
+Circle::Circle():
+center_{0.0, 0.0},
+radius{0},
+clr_{0.0} {}
+
 Circle::Circle(float r) :
 center_{0.0, 0.0},
 radius{r},
