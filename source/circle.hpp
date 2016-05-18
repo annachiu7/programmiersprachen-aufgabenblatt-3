@@ -8,6 +8,8 @@ class Circle
 {
 public:
 	Circle(float r);
+	// Circle(Circle const& c);
+	// Circle(Circle&& c);
 	Circle(Vec2 const& center, float r, Color const& clr);
 
 	// member function
