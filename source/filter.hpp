@@ -12,7 +12,7 @@ template<typename Container, typename Functor>
 Container filter(Container const& container, Functor const& predicate)
 {
 		Container res{};
-		for(auto&& value: container) //access by reference, the type of i is auto&
+		for(auto&& value: container) //access by reference, the type of value is auto&
 			{ 
 			if (predicate(value))
 			{

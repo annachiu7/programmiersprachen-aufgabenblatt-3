@@ -23,22 +23,6 @@ bool is_even(int a)
 	return (a%2)==0;
 }
 
-template<typename T>
-void swap_(T & a, T & b) // & no copie, otherwise values dont change
-{
-	T c = a;
-	a = b;
-	b = c;
-}
-
-/*
-void swap_(int *a, int *b)
-{
-	int c=*a;
-	*a=*b;
-	*b=t;
-}
-*/
 
 TEST_CASE("describe_factorial", "[aufgabe3]")
 {
@@ -60,6 +44,23 @@ TEST_CASE("describe_sorted_circle", "[aufgabe3.7]")
 	
 	REQUIRE(std::is_sorted(s.begin(),s.end()));
 }
+
+template<typename T>
+void swap_(T & a, T & b) // & no copie, otherwise values dont change
+{
+	T c = a;
+	a = b;
+	b = c;
+}
+
+/*
+void swap_(int *a, int *b)
+{
+	int c=*a;
+	*a=*b;
+	*b=t;
+}
+*/
 
 TEST_CASE("describe_swap", "[aufgabe3.8]")
 {
@@ -114,51 +115,6 @@ TEST_CASE("describe_filter", "[aufgabe3.11]")
 						 	return (a%2)==0;
 						 } ));
 }
-
-TEST_CASE("describe_3.13", "[aufgabe3.13]")
-{
-	std::vector<Circle> circles{Circle{5.0f},Circle{3.0f},Circle{8.0f},Circle{1.0f},Circle{5.0f}};
-	std::vector<Circle> result(circles.size());
-	std::copy_if(circles.begin(),circles.end(),result.begin(),
-				 [](Circle const& c)
-				 {
-				 	return c.get_radius()>=4.0f;
-				 });
-
-	auto it = result.end()-1;
-	while (*it == Circle{})
-	{
-		result.pop_back();
-		it = result.end()-1;
-	}
-
-	REQUIRE(result.size()==3);
-	REQUIRE(std::all_of(result.begin(), result.end(), 
-						[](Circle const& c)
-						{
-							return c.get_radius()>=3.0f;
-						}));
-}
-
-template<typename T>
-class sort_C 
-{
-public:
-	bool operator() (T const& i, T const& j)
-	{
-		return i<j;
-	}
-};
-
-TEST_CASE("describe_sorted_circle_lambda_3.14", "[aufgabe3.14]")
-{
-	sort_C<Circle> sort_circle;
-	std::vector<Circle> v{Circle{0.3}, Circle{5.0}, Circle{3.2}, Circle{1.0}};
-	std::sort(v.begin(), v.end(),sort_circle);
-	REQUIRE(std::is_sorted(v.begin(),v.end()));
-}
-
-
 
 
 int main(int argc, char *argv[])
